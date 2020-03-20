@@ -1,7 +1,25 @@
+let shuffledArray = [];
+let cardNum = 0;
+
+// Fisher-Yates shuffle
+function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    shuffledArray = array;
+    return shuffledArray;
+}
+
+
 function getCard(){
-    let ranNum = Math.floor(Math.random() * Math.floor(52));
-    let ranCard = `${STORE[ranNum]}`;
-    displayCard(ranCard);
+    if(cardNum >= 52){
+        cardNum =0;
+    }
+    let setCard = shuffledArray[cardNum];
+    console.log(cardNum)
+    displayCard(setCard);
+    cardNum++;
 }
 
 function displayCard(card){
@@ -41,4 +59,5 @@ function buttons() {
 // Items to run in the beginning of the page load
 $(function() {
     buttons();
+    shuffle(STORE);
   });
