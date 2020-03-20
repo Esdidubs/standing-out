@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Standing Out</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <header>
+        <h1>Standing Out</h1>
+    </header>
+    <main>
+        <form id="cardForm">
+            <fieldset class="rules" id="rules">
+                <legend>Rules</legend>
+                <p class="description">
+                    Each card (round) has 7 prompts. The game starts by reading off the first prompt.
+                    Everyone writes down an answer to the prompt. As long as you write down a correct answer
+                    that no one else wrote down, you survive and make it to the next prompt. If you wrote down
+                    an incorrect answer or an answer that someone else wrote down, you're out until the next round.
+                    Play proceeds until either 1 person is left or until the 7th prompt is complete.
+                    It's possible that everyone could get knocked out and no one wins the round, and it's
+                    possible that more than 1 person could make it through all 7 prompts to win the round.<br /><br />
+                    
+                    If at any point in the game there is a question about whether someone's answer is legitimate,
+                    everyone (including the player in question and the players who have already been knocked out)
+                    votes on it. Majority rules. If there's a tie, the player in question is safe. 
+                </p>
+            </fieldset>
+            <div id="cardSection" class="hidden"></div>      
+            <button id="newGame">Start the Game</button>
+            <button id="newCard" class="hidden">New Round</button>
+            <button id="btnRules" class="hidden">Rules</button>
+
+        </form>
+        
+    </main>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="STORE.js"></script> 
+    <script src="index.js"></script>
+</body>
+</html>
