@@ -11,7 +11,6 @@ function shuffle(array) {
     return shuffledArray;
 }
 
-
 function getCard(){
     if(cardNum >= 52){
         cardNum =0;
