@@ -1,45 +1,29 @@
-let shuffledArray = [];
 let cardNum = 0;
 
-// Fisher-Yates shuffle
-function shuffle(array) {
-	for (let i = array.length - 1; i > 0; i--) {
-		let j = Math.floor(Math.random() * (i + 1));
-		[ array[i], array[j] ] = [ array[j], array[i] ];
-	}
-	shuffledArray = array;
-	return shuffledArray;
-}
+// Items to run in the beginning of the page load
+$(function() {
+	buttons();
+	shuffle(STORE);
 
-function getCard() {
-	if (cardNum >= 52) {
-		cardNum = 0;
-	}
-	let setCard = shuffledArray[cardNum];
-	console.log(cardNum);
-	displayCard(setCard);
-	cardNum++;
-}
-
-function displayCard(card) {
-	$('#cardSection').replaceWith(
-		`<div id="cardSection">
-            <img src=${card} alt="Standing Out Card" class="roundCard" />
-        </div>`
-	);
-}
+	$('#cardSection').hide();
+	$('#newCard').hide();
+	$('#btnRules').hide();
+});
 
 // Events for all of the buttons
 function buttons() {
+
+	// we use cardForm because it always exists
 	$('#cardForm').on('click', '#newGame', function() {
 		event.preventDefault();
 		getCard();
-		if (!$('#rules').hasClass('hidden')) {
-			$('#rules').addClass('hidden');
+		if ($('#rules').is(':visible')) {
+			$('#rules').hide();
 		}
-		$('#newGame').addClass('hidden');
-		$('#newCard').removeClass('hidden');
-		$('#btnRules').removeClass('hidden');
+		$('#newGame').hide();
+		$('#newCard').show();
+		$('#btnRules').show();
+		$('#cardSection').show();
 	});
 
 	$('#cardForm').on('click', '#newCard', function() {
@@ -49,12 +33,29 @@ function buttons() {
 
 	$('#cardForm').on('click', '#btnRules', function() {
 		event.preventDefault();
-		$('#rules').toggleClass('hidden');
+		$('#rules').toggle();
 	});
 }
 
-// Items to run in the beginning of the page load
-$(function() {
-	buttons();
-	shuffle(STORE);
-});
+// Fisher-Yates shuffle to ensure the array is shuffled
+function shuffle(array) {
+	for (let i = array.length - 1; i > 0; i--) {
+		let j = Math.floor(Math.random() * (i + 1));
+		[ array[i], array[j] ] = [ array[j], array[i] ];
+	}
+}
+
+// Grabs the card based on the current card number
+function getCard() {
+	if (cardNum >= 52) {
+		cardNum = 0;
+	}
+	let setCard = STORE[cardNum];
+	displayCard(setCard);
+	cardNum++;
+}
+
+// Updates the image in #cardSection with a new url
+function displayCard(card) {
+	$('#cardSection').html(`<img src=${card} alt="Standing Out Card" class="roundCard" />`);
+}
