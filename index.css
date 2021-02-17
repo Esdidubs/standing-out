@@ -3,30 +3,49 @@ html {
 	min-height: 100%;
 }
 
-.hidden {
-	display: none;
-}
-
 body {
-	color: white;
-	text-shadow: 0px 1px 0px black;
-	background-color: #4479aa;
 	background: linear-gradient(to bottom, #4479aa 5%, #1d568b 100%);
-	text-align: center;
+	background-attachment: fixed;
+	background-color: #4479aa;
+	background-repeat: no-repeat;
+	color: white;
 	height: 100%;
 	margin: 0 0 40px;
-	background-repeat: no-repeat;
-	background-attachment: fixed;
+	text-align: center;
+	text-shadow: 0px 1px 0px black;	
+}
+
+button {	
+	background: linear-gradient(to bottom, #2e466e 5%, #415989 100%);
+	background-color: #2e466e;
+	border: 1px solid #1f2f47;
+	border-radius: 6px;
+	box-shadow: 3px 3px 0px 0px #23395e;
+	color: white;
+	display: inline-block;
+	margin: 10px 10px 25px 10px;
+	padding: 12px 44px;
+	text-shadow: 0px 1px 0px #263666;	
+}
+
+button:hover {
+	background: linear-gradient(to bottom, #415989 5%, #2e466e 100%);
+	background-color: #415989;
+}
+
+button:active {
+	position: relative;
+	top: 1px;
 }
 
 footer {
 	background-color: #58738b;
-	position: absolute;
-	left: 0;
 	bottom: 0;
 	height: 40px;
-	width: 100%;
+	left: 0;
 	overflow: hidden;
+	position: absolute;
+	width: 100%;	
 }
 
 footer p {
@@ -44,36 +63,15 @@ legend {
 
 .rules {
 	border: 2px black solid;
-	width: 75%;
-	margin: 0 auto;
-	text-align: left;
 	font-size: 20px;
-	margin-bottom: 15px;
+	margin: 0 auto;
+	margin-bottom: 15px;	
+	text-align: left;	
+	width: 75%;
 }
 
 .roundCard {
 	height: 500px;
-}
-
-button {
-	box-shadow: 3px 3px 0px 0px #23395e;
-	background: linear-gradient(to bottom, #2e466e 5%, #415989 100%);
-	background-color: #2e466e;
-	border-radius: 6px;
-	border: 1px solid #1f2f47;
-	display: inline-block;
-	color: white;
-	padding: 12px 44px;
-	text-shadow: 0px 1px 0px #263666;
-	margin: 10px 10px 25px 10px;
-}
-button:hover {
-	background: linear-gradient(to bottom, #415989 5%, #2e466e 100%);
-	background-color: #415989;
-}
-button:active {
-	position: relative;
-	top: 1px;
 }
 
 @media (min-width: 768px) {
